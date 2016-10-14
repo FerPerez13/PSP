@@ -1,0 +1,22 @@
+package tema1;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+public class EjercicioAleatorio {
+	
+	public static void main(String[] args){
+		try{
+			Process process = new ProcessBuilder(args).start() ;
+			InputStream entrada = proceso.getInputStream();
+			BufferedReader br = new BufferedReader(new InputStreamReader(entrada));
+			
+			String line;
+ 
+			
+		}catch{
+			
+		}
+	}
+
+}

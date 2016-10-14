@@ -1,0 +1,42 @@
+package tema1;
+import java.io.*;
+import java.util.Arrays;
+
+public class EjercicioAleatorio {
+	
+	public static void main(String[] args){
+		try{
+			
+			Process process = new ProcessBuilder(args).start() ;
+			
+			InputStream is = process.getInputStream() ;
+			InputStreamReader isr = new InputStreamReader(is);
+			BufferedReader br = new BufferedReader(isr);
+			PrintStream ps = new PrintStream(process.getOutputStream());
+			
+			BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+			
+			String line;
+			while((br2.readLine()).compareTo("fin")!=0){
+				ps.println("");
+				ps.flush();
+				
+				//System.out.println(line);
+			}
+			
+		
+			
+			System.out.println("Salida del proceso " + Arrays.toString(args) + " : " ) ;
+			
+			while((line=br.readLine()) != null ) {
+				System.out.println(line);
+			}
+
+			
+		}catch(Exception e){
+			System.out.println("Error ocurrió ejecutando el	comando. Descripción: " + e.getMessage());
+			
+		}
+	}
+
+}
