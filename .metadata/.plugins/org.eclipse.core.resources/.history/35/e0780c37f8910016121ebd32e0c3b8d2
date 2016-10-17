@@ -9,7 +9,7 @@ public class EjercicioAleatorio {
 			
 			Process hijo = new ProcessBuilder("./aleatorios").start();
 			
-			InputStream is = hijo.getInputStream();
+			InputStream is = hijo.getInputStream() ;
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(isr);
 			PrintStream ps = new PrintStream(hijo.getOutputStream());
