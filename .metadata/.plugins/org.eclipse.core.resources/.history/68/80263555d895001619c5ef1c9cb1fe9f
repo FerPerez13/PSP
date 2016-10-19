@@ -10,6 +10,7 @@ public class EjercicioMayusculas {
 	
 	public static void main(String[] args) {
 		
+		//TODO hacer el ejercicio. Es similar al anterior pero sin pasar el FIN.
 		try{
 			
 			Process hijo = new ProcessBuilder("./mayusculas").start();
@@ -40,7 +41,8 @@ public class EjercicioMayusculas {
 			System.out.println("Salida del proceso " + Arrays.toString(args) + " : " ) ;
 						
 		}catch(Exception e){
-			System.out.println("Error ocurrió ejecutando el	comando. Descripción: " + e.getMessage());	
+			System.out.println("Error ocurrió ejecutando el	comando. Descripción: " + e.getMessage());
+			
 		}
 	}
 
