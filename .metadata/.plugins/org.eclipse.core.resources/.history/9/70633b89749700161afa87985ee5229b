@@ -1,0 +1,35 @@
+package Ejercicios1;
+
+import java.util.Scanner;
+
+
+public class Fibonacci {
+	public static void main(String args[]) {
+		RunnableClass rc = new RunnableClass();
+		
+		Thread hilo1 = new Thread(rc);
+		
+		hilo1.start();
+		
+	}
+}
+class RunnableClass implements Runnable{
+	public void run(){
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("¿Cuantos valores quieres de la sucesión de Fibonacci?");
+		int num = scanner.nextInt();
+		
+			
+		int fib1 = 0;
+		int fib2 = 1;
+	
+		System.out.print(fib1 + " " + fib2+ " ");
+		
+		for (int i=0;i<num;i++){
+			int fib3 = fib1+fib2;
+			System.out.print(fib3 + " ");
+			fib1=fib2;
+			fib2=fib3;
+		}	
+	}
+}
