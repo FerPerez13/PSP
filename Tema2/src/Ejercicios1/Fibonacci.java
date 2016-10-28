@@ -23,6 +23,9 @@ class RunnableClass implements Runnable{
 	public RunnableClass(int num){
 		this.num=num;
 	}
+	public RunnableClass() {
+		System.out.println("Yo");
+	}
 	public void run(){
 		int fib1 = 0;
 		int fib2 = 1;

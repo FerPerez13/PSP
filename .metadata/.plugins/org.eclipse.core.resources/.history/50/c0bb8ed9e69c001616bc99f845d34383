@@ -1,0 +1,25 @@
+package Ejercicios1;
+
+import java.util.Scanner;
+
+public class CreaHilos {
+	public static void main(String args[]){
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("¿Cuantos hilos quieres crear: ");
+		int num = scanner.nextInt();
+		
+		for(int i=0; i<num; i++){
+			
+		}
+	}
+}
+class RunnableClass implements Runnable{
+	public int num;
+	public RunnableClass(){
+		
+	}
+	public void run(){
+		
+			
+	}
+}

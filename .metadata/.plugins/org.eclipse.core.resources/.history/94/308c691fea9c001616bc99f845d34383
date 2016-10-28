@@ -1,0 +1,29 @@
+package Tema2;
+class HiloEsperar extends Thread {
+	public void run() {
+		System.out.println("Soy el "+ Thread.currentThread().getName() +" empezando.");
+		try {
+			this.sleep(10000);
+			// También se puede hacer así y lo aplicará al hilo actual.
+			// Thead.sleep(3000);
+		} catch (InterruptedException e) {
+			System.out.println(Thread.currentThread().getName() +" interrumpido.");
+			return;
+		}
+		System.out.println(Thread.currentThread().getName() +" acabado.");
+	}		
+}
+public class HiloEspera{
+	public static void main(String args[]) {
+		HiloEsperar hiloEsperar = new HiloEsperar();
+		hiloEsperar.start();
+		try {
+			hiloEsperar.sleep(5000);
+		} catch (InterruptedException exception) {
+			System.out.println("Interrumpido");
+		}
+		System.out.println("Acabo la ejecucion - main");
+		
+		
+	}
+}
