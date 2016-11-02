@@ -1,0 +1,22 @@
+package Tema2;
+
+public class PlanificacionHilosEjercicio7 {
+	public void run() {
+		System.out.println("Soy el "+ Thread.currentThread().getName() +" empezando.");
+		for(int i=0; i<10; i++)
+		System.out.println("Soy el "+ Thread.currentThread().getName() +" iteración "+ i);
+		System.out.println("Soy el "+ Thread.currentThread().getName() +" acabando.");
+	}
+}
+public class Prioridad {
+	public static void main(String[] args) {
+		PlanificacionHilosEjercicio7 thread1 = new PlanificacionHilosEjercicio7();
+		thread1.setName("Hilo 1");
+		thread1.setPriority(1);
+		PlanificacionHilosEjercicio7 thread2 = new PlanificacionHilosEjercicio7();
+		thread2.setName("Hilo 2");
+		thread2.setPriority(Thread.MAX_PRIORITY);
+		thread1.start();
+		thread2.start();
+	}
+}
