@@ -11,9 +11,12 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="Ejercicios1.RunnableClass"/>
-<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 <fullyQualifiedTypeName name="Tema2.HiloEsperar"/>
 <fullyQualifiedTypeName name="Tema2.HiloEsperar3"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="Tema2.Hilo2"/>
+<fullyQualifiedTypeName name="javax.xml.bind.SchemaOutputResolver"/>
+<fullyQualifiedTypeName name="Tema2.Hilo1"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 </qualifiedTypeNameHistroy>

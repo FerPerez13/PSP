@@ -1,0 +1,39 @@
+package Tema2;
+
+
+public class EjercicioPracticoHilos extends Thread {
+	private int variable = 0;
+	private EjercicioPracticoHilos hilo1 = new EjercicioPracticoHilos();
+	hilo1.setName("Hilo 1");
+	private EjercicioPracticoHilos hilo2 = new EjercicioPracticoHilos();
+	hilo2.setName("Hilo 2");
+	public void run() {
+		
+		if(this.getName().compareTo("Hilo 1")==0){
+			
+		} else {
+			try {
+				hilo1.join();
+			} catch (InterruptedException e) {
+				
+			}
+		}
+		System.out.println("Soy el hilo "+this.currentThread().getName());
+		
+		for(int i=variable; i<=10; i++){	
+			variable=i;
+		}	
+		
+		System.out.println(variable);
+		
+	}
+
+	public static void main(String[] args) {
+		
+		
+		hilo1.start();
+		hilo2.start();
+		
+	}
+
+}

@@ -1,0 +1,31 @@
+package Tema2;
+
+
+class Hilo1 extends Thread {
+	private int variable = 0;
+	public void run() {
+		System.out.println("Soy el hilo "+this.currentThread().getName());
+		
+		for(int i=variable; i<10; i++){	
+			variable=i;
+		}	
+		
+		System.out.println(i);
+		
+	}
+}
+
+public class EjercicioPracticoHilos{
+	
+	public static void main(String[] args) {
+		Hilo1 hilo1 = new Hilo1();
+		hilo1.setName("Hilo 1");
+		Hilo1 hilo2 = new Hilo1();
+		hilo2.setName("Hilo 2");
+		
+		hilo1.start();
+		hilo2.start();
+		
+	}
+
+}
