@@ -7,16 +7,20 @@
 <fullyQualifiedTypeName name="Tema1.HelloThread"/>
 <fullyQualifiedTypeName name="Tema1.ProcessSincronization"/>
 <fullyQualifiedTypeName name="javax.transaction.TransactionRequiredException"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="Ejercicios1.RunnableClass"/>
 <fullyQualifiedTypeName name="Tema2.HiloEsperar"/>
 <fullyQualifiedTypeName name="Tema2.HiloEsperar3"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="Tema2.Hilo2"/>
 <fullyQualifiedTypeName name="javax.xml.bind.SchemaOutputResolver"/>
 <fullyQualifiedTypeName name="Tema2.Hilo1"/>
 <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
+<fullyQualifiedTypeName name="Tema2.VerificarCuenta"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.time.format.FormatStyle"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="EjerciciosFinales.Hilo"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,95 @@
+package EjerciciosFinales;
+
+import java.lang.reflect.Array;
+import java.util.Scanner;
+
+class Hilo extends Thread {
+	
+	private static int vocales=0;
+	static String frase;
+		
+	public void run() {
+		if(currentThread().getName().compareTo("HiloA")==0)
+			this.contA(frase);
+		if(currentThread().getName().compareTo("HiloE")==0)
+			this.contE(frase);
+		if(currentThread().getName().compareTo("HiloI")==0)
+			this.contI(frase);
+		if(currentThread().getName().compareTo("HiloO")==0)
+			this.contO(frase);
+		if(currentThread().getName().compareTo("HiloU")==0)
+			this.contU(frase);
+	}
+	public synchronized void contA(String frase){
+		for (int i=0; i<frase.length(); i++){
+			if(frase.charAt(i)=='a'){
+				vocales++;
+			}
+		}
+		System.out.println(vocales);
+	}
+	public synchronized void contE(String frase){
+		for (int i=0; i<frase.length(); i++){
+			if(frase.charAt(i)=='e'){
+				vocales++;
+			}
+		}
+		System.out.println(vocales);
+	}
+	public synchronized void contI(String frase){
+		for (int i=0; i<frase.length(); i++){
+			if(frase.charAt(i)=='i'){
+				vocales++;
+			}
+		}
+		System.out.println(vocales);
+	}
+	public synchronized void contO(String frase){
+		for (int i=0; i<frase.length(); i++){
+			if(frase.charAt(i)=='o'){
+				vocales++;
+			}
+		}
+		System.out.println(vocales);
+	}
+	public synchronized void contU(String frase){
+		for (int i=0; i<frase.length(); i++){
+			if(frase.charAt(i)=='u'){
+				vocales++;
+			}
+		}
+		System.out.println(vocales);
+	}
+	
+	
+}
+
+public class Ejercicio9 {
+		
+	public static void main(String[] args) {
+		
+		Hilo hiloA = new Hilo();
+		hiloA.setName("HiloA");
+		Hilo hiloE = new Hilo();
+		hiloE.setName("HiloE");
+		Hilo hiloI = new Hilo();
+		hiloI.setName("HiloI");
+		Hilo hiloO = new Hilo();
+		hiloO.setName("HiloO");
+		Hilo hiloU = new Hilo();
+		hiloU.setName("HiloU");
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Dime la frase a analizar: ");
+		Hilo.frase = scanner.nextLine();
+		
+		hiloA.start();
+		hiloE.start();
+		hiloI.start();
+		hiloO.start();
+		hiloU.start();
+		
+	}
+	
+}
+

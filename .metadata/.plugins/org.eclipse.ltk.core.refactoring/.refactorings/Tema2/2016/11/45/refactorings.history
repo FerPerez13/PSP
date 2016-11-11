@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Tema2.VerificarCuenta&apos; to &apos;Main&apos;&#x0A;- Original project: &apos;Tema2&apos;&#x0A;- Original element: &apos;Tema2.VerificarCuenta&apos;&#x0A;- Renamed element: &apos;Tema2.Main&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;VerificarCuenta&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;Tema2{VerificarCuenta.java[VerificarCuenta" matchStrategy="1" name="Main" qualified="false" references="true" similarDeclarations="false" stamp="1478684469955" textual="false" version="1.0"/>
+</session>
