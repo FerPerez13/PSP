@@ -1,0 +1,55 @@
+package EjerciciosFinales;
+
+import java.io.FileWriter;
+
+public class Parking {
+	
+	static int sitiosLibres=8;
+	
+	public static void main(String[] args){
+		System.out.println("Bienvenido al Parking: Aparca cómo puedas");
+		Barrera barrera = new Barrera(sitiosLibres);
+		
+		for(int i=0; i<sitiosLibres;i++){
+			String nombre = "Coche"+i;
+			Coche coche = new Coche(nombre, barrera);
+			
+		}
+	}
+
+
+}
+
+class EsperarCoche { 
+	public static void esperar(long milis) {
+		try {
+			Thread.sleep(milis);
+		} catch (InterruptedException e) {
+			System.err.println("Tiene que esperar, esta completo");
+			System.exit(-1);
+		}
+	}
+}
+
+class Barrera{
+	
+	private int plazas;
+	
+	public Barrera(int plazas){
+		this.plazas=plazas;
+	}
+	
+}
+
+class Coche extends Thread{
+	
+	private Barrera barrera;
+	
+	public void run(){
+		//TODO Entrar
+	}
+	public Coche(String nombre, Barrera barrera) {
+		this.setName(nombre);		
+		this.barrera=barrera;
+	}
+}

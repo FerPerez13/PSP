@@ -1,0 +1,8 @@
+public static void esperarCoche(long milis) {
+		try {
+			Thread.sleep(milis);
+		} catch (InterruptedException e) {
+			System.err.println("Tiene que esperar, esta completo");
+			System.exit(-1);
+		}
+	}

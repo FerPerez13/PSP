@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="Tema1.HelloThread"/>
 <fullyQualifiedTypeName name="Tema1.ProcessSincronization"/>
@@ -11,7 +10,6 @@
 <fullyQualifiedTypeName name="Ejercicios1.RunnableClass"/>
 <fullyQualifiedTypeName name="Tema2.HiloEsperar"/>
 <fullyQualifiedTypeName name="Tema2.HiloEsperar3"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="Tema2.Hilo2"/>
 <fullyQualifiedTypeName name="javax.xml.bind.SchemaOutputResolver"/>
 <fullyQualifiedTypeName name="Tema2.Hilo1"/>
@@ -21,6 +19,15 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.time.format.FormatStyle"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="EjerciciosFinales.Hilo"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="EjerciciosFinales.Ejercicio10"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="EjerciciosFinales.Coche"/>
+<fullyQualifiedTypeName name="EjerciciosFinales.Barrera"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>
