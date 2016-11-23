@@ -1,6 +1,4 @@
-package EjerciciosFinales;
-
-//Solución ofrecida por Alex para el Ejercicio del Parking
+package unidad2;
 
 public class Parking {	
 	public static void main(String[] args) {

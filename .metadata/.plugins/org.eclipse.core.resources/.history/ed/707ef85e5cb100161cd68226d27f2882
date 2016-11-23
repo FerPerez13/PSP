@@ -1,12 +1,10 @@
 package EjerciciosFinales;
 
-//Solución ofrecida por Alex para el Ejercicio del Parking
-
 public class Parking {	
 	public static void main(String[] args) {
-		Barrera entrada = new Barrera(3);
+		BarreraF entrada = new BarreraF(3);
 		for (int i = 0; i < 10; i++){
-			Coche coche = new Coche("Coche " + i, entrada);
+			CocheF coche = new CocheF("Coche " + i, entrada);
 			coche.start();
 			
 			long tEspera = (long) (Math.random()*7+1)*1000;
@@ -22,9 +20,9 @@ public class Parking {
 
 class Coche extends Thread{
 	private String nombre;
-	private Barrera barrera;
+	private BarreraF barrera;
 	
-	public Coche (String nombre, Barrera barrera){
+	public Coche (String nombre, BarreraF barrera){
 		this.nombre = nombre;
 		this.barrera = barrera;
 	}

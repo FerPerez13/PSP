@@ -1,7 +1,5 @@
 package EjerciciosFinales;
 
-//Solución ofrecida por Alex para el Ejercicio del Parking
-
 public class Parking {	
 	public static void main(String[] args) {
 		Barrera entrada = new Barrera(3);
