@@ -80,7 +80,7 @@ class Tenedor{
     }
 }
 
-class Espera {
+class Espera2 {
 	public static void espera(long espera){
 		try{
 			Thread.sleep(espera);
