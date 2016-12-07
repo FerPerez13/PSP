@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ServidorSocketStream.java&apos; to &apos;Tema3/src/Ejercicios2&apos;&#x0A;- Original project: &apos;Tema3&apos;&#x0A;- Destination element: &apos;Tema3/src/Ejercicios2&apos;&#x0A;- Original element: &apos;Ejercicios1.ServidorSocketStream.java&apos;" description="Copy compilation unit" destination="/src&lt;Ejercicios2" element1="/src&lt;Ejercicios1{ServidorSocketStream.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1481102335093" units="1" version="1.0"/>
+</session>

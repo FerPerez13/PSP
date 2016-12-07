@@ -1,4 +1,4 @@
-package Ejercicios1;
+package Ejercicios2;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +9,6 @@ import java.net.ServerSocket;
 
 public class ServidorSocketStream {
 	public static void main(String[] args) {
-
 		try {
 			System.out.println("Creando socket servidor");
 			ServerSocket serverSocket = new ServerSocket();
@@ -17,17 +16,11 @@ public class ServidorSocketStream {
 			InetSocketAddress addr = new InetSocketAddress("192.168.26.186", 5555);
 			serverSocket.bind(addr);
 			
-			int cont = 0;
-			while (cont<5){
-				
-				System.out.println("Aceptando conexiones");
-				Socket newSocket = serverSocket.accept();
-				System.out.println("Conexión recibida");
-				new HiloServidor(newSocket).start();
-				
-				cont++;
-			}
-			
+			System.out.println("Aceptando conexiones");
+			Socket newSocket = serverSocket.accept();
+			System.out.println("Conexión recibida");
+			new HiloServidor(newSocket).start();
+
 			System.out.println("Cerrando el socket servidor");
 			serverSocket.close();
 			System.out.println("Terminado");
@@ -40,13 +33,10 @@ public class ServidorSocketStream {
 }
 
 class HiloServidor extends Thread{
-	
 	Socket socket;
-	
 	public HiloServidor(Socket socket) {
 		this.socket=socket;
-	}
-			
+	}	
 	public void run(){
 		try {
 			InputStream is = socket.getInputStream();

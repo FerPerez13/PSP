@@ -45,13 +45,15 @@
 <fullyQualifiedTypeName name="PruebaFernandoPerezAndres.Ejercicio1"/>
 <fullyQualifiedTypeName name="PruebaFernandoPerezAndres.Ejercicio2"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
-<fullyQualifiedTypeName name="java.net.ServerSocket"/>
-<fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="Ejercicios1.ServidorSocketStream.HiloSocket"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="java.net.Socket"/>
 <fullyQualifiedTypeName name="Ejercicios1.HiloServidor"/>
+<fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
+<fullyQualifiedTypeName name="java.net.Socket"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.net.ServerSocket"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicScrollPaneUI.HSBChangeListener"/>
 </qualifiedTypeNameHistroy>
