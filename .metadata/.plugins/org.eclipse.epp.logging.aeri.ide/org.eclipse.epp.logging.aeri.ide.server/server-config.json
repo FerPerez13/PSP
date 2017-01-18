@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "title": "Eclipse Automated Error Reporting",
-  "timestamp": 1481878909020,
+  "timestamp": 1484729836709,
   "ttl": 10080,
   "helpUrl": "https://dev.eclipse.org/recommenders/community/aeri/v2/help/",
   "feedbackUrl": "http://ctrlflow.com/automated-error-reporting",
@@ -51,7 +51,7 @@
     "org.gradle.*",
     "org.jacoco.*"
   ],
-  "acceptOtherPackages": true,
+  "acceptOtherPackages": false,
   "acceptUiFreezes": true,
   "ignoredStatuses": [
     ":java.io.IOException:There is not enough space on the disk",

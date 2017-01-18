@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 4 elements to &apos;Tema4/src/tema4&apos;&#x0A;- Original project: &apos;Tema4&apos;&#x0A;- Destination element: &apos;Tema4/src/tema4&apos;&#x0A;- Original elements:&#x0A;     CalcServer.java&#x0A;     HoraServer.java&#x0A;     CalcClient.java&#x0A;     HoraClient.java&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;tema4" element1="/src&lt;{CalcServer.java" element2="/src&lt;{HoraServer.java" element3="/src&lt;{CalcClient.java" element4="/src&lt;{HoraClient.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1484730100788" units="4" version="1.0"/>
+</session>
