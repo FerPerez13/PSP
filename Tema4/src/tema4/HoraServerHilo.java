@@ -72,7 +72,7 @@ public class HoraServerHilo extends Thread {
         while (serverSocket != null) {
             try {
                 Socket newSocket = serverSocket.accept();
-                System.out.println("Conexi�n recibida");
+                System.out.println("Conexion�n recibida");
                 HoraServerHilo hilo = new HoraServerHilo(newSocket);
                 hilo.start();
             } catch (IOException e) {
