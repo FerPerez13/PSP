@@ -12,13 +12,8 @@ import java.net.Socket;
 public class Servidor extends Thread{
 	
 	private static Socket[] sockets;
-	private static String[] usuarios;
-	private static Mensaje[] mensajes;
 	private static int socketOcupado = 0;
-	
 	private int enviar;
-	
-	//Object Monitor = new Object();
 	
 	
 	public Servidor(Socket socket,int enviar) {
@@ -30,31 +25,19 @@ public class Servidor extends Thread{
 // --- Hay que crear un if en el que comprobamos el tipo de hilo es. Y habrá códigos diferentes para los hilos dependiendo del tipo de hilo. ---
 	public void run(){ 
 		
-		
 		if (enviar==1) {
 			//Se envian mensajes por aqui
-			synchronized (sockets[socketOcupado]) {
-				Mensaje mensaje = mensajes[socketOcupado];
-			}
-			//Swittch Case con los códigos de mensaje
 			
 		} else {
 			//Se reciben mensajes
-			System.out.println("Esperando mensaje");
-			Mensaje mensaje;
 			try {
 				ObjectInputStream objectInputStream = new ObjectInputStream(sockets[socketOcupado].getInputStream());
-				mensaje = (Mensaje)objectInputStream.readObject();
-				synchronized (sockets[socketOcupado]) {
-					mensajes[socketOcupado]=mensaje;
-				}
-				
 			} catch (IOException e) {
-				e.printStackTrace();
-			}  catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//Switch Case con los códigos de mensaje
+			System.out.println("Esperando mensaje");
+
 		}
 		
 		try {
@@ -66,8 +49,6 @@ public class Servidor extends Thread{
 			e.printStackTrace();
 		}
 	}
-
-	
 	
 	public static void main(String args[]){
 		
