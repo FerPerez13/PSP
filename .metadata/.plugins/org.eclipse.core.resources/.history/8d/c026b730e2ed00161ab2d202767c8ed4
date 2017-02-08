@@ -17,47 +17,26 @@ public class Servidor extends Thread{
 	private static int socketOcupado = 0;
 	
 	private int enviar;
-	private Socket socket;
 	
 	//Object Monitor = new Object();
 	
+	
 	public Servidor(Socket socket,int enviar) {
-		this.socket=socket;
-		this.enviar=enviar;
+		sockets[socketOcupado] = socket;
 		socketOcupado++;
-		
+		this.enviar=enviar;
 	}
 	
 // --- Hay que crear un if en el que comprobamos el tipo de hilo es. Y habrá códigos diferentes para los hilos dependiendo del tipo de hilo. ---
 	public void run(){ 
 		
-		//Sacamos la posicion del socket para acceder siempre a él
-		int pos = 0;
-		int codigo = 0;
-		for (int i = 0; i < sockets.length; i++) {
-			if (sockets[i]==this.socket)
-				pos = i;
-		}
 		
 		if (enviar==1) {
 			//Se envian mensajes por aqui
-			synchronized (sockets[pos]) {
-				Mensaje mensaje = mensajes[pos];
+			synchronized (sockets[socketOcupado]) {
+				Mensaje mensaje = mensajes[socketOcupado];
 			}
-			codigo=mensajes[pos].getCodigo();
-			//Switch Case con los códigos de mensaje
-			switch (codigo) {
-			case 2:
-				break;
-			case 4:
-				break;
-			case 5:
-				break;
-			case 6:
-				break;
-			default:
-				break;
-			}
+			//Swittch Case con los códigos de mensaje
 			
 		} else {
 			//Se reciben mensajes
@@ -66,24 +45,8 @@ public class Servidor extends Thread{
 			try {
 				ObjectInputStream objectInputStream = new ObjectInputStream(sockets[socketOcupado].getInputStream());
 				mensaje = (Mensaje)objectInputStream.readObject();
-				codigo = mensaje.getCodigo();
-				
-				synchronized (usuarios) {
-					usuarios[pos]=mensaje.getUsuario();
-				}
-				
-				synchronized (this.socket) {
-					mensajes[pos]=mensaje;
-				}
-				
-				//Switch Case con los códigos de mensaje
-				switch (codigo) {
-				case 1:
-					break;
-				case 3:
-					break;
-				default:
-					break;
+				synchronized (sockets[socketOcupado]) {
+					mensajes[socketOcupado]=mensaje;
 				}
 				
 			} catch (IOException e) {
@@ -91,6 +54,7 @@ public class Servidor extends Thread{
 			}  catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
+			//Switch Case con los códigos de mensaje
 		}
 		
 		try {
@@ -113,28 +77,19 @@ public class Servidor extends Thread{
 		
 		try {
 			serverSocket = new ServerSocket();
-			InetSocketAddress addr = new InetSocketAddress("192.168.26.41", 5555);
+			InetSocketAddress addr = new InetSocketAddress("192.168.26.54", 5555);
 			serverSocket.bind(addr);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		try {
-			while(socketOcupado<5){
-				Socket newSocket = serverSocket.accept();
-				System.out.println("Conexion recibida");
-				Servidor servidorE = new Servidor(newSocket, 1);
-				Servidor servidorR = new Servidor(newSocket, 0);
-				
-				for (int i = 0; i < sockets.length; i++) {
-					if(sockets[i]==null)
-						sockets[i]=newSocket;			
-				}
-				
-				servidorE.start();
-				servidorR.start();
-			}
-			
+			Socket newSocket = serverSocket.accept();
+			System.out.println("Conexion recibida");
+			Servidor servidorE = new Servidor(newSocket, 1);
+			Servidor servidorR = new Servidor(newSocket, 0);
+			servidorE.start();
+			servidorR.start();
 
 		} catch (IOException e) {
 			e.printStackTrace();

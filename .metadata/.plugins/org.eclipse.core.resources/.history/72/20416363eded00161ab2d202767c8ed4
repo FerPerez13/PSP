@@ -30,10 +30,7 @@ public class Servidor extends Thread{
 	
 // --- Hay que crear un if en el que comprobamos el tipo de hilo es. Y habrá códigos diferentes para los hilos dependiendo del tipo de hilo. ---
 	public void run(){ 
-		
-		//Sacamos la posicion del socket para acceder siempre a él
 		int pos = 0;
-		int codigo = 0;
 		for (int i = 0; i < sockets.length; i++) {
 			if (sockets[i]==this.socket)
 				pos = i;
@@ -44,20 +41,7 @@ public class Servidor extends Thread{
 			synchronized (sockets[pos]) {
 				Mensaje mensaje = mensajes[pos];
 			}
-			codigo=mensajes[pos].getCodigo();
 			//Switch Case con los códigos de mensaje
-			switch (codigo) {
-			case 2:
-				break;
-			case 4:
-				break;
-			case 5:
-				break;
-			case 6:
-				break;
-			default:
-				break;
-			}
 			
 		} else {
 			//Se reciben mensajes
@@ -66,31 +50,15 @@ public class Servidor extends Thread{
 			try {
 				ObjectInputStream objectInputStream = new ObjectInputStream(sockets[socketOcupado].getInputStream());
 				mensaje = (Mensaje)objectInputStream.readObject();
-				codigo = mensaje.getCodigo();
-				
-				synchronized (usuarios) {
-					usuarios[pos]=mensaje.getUsuario();
-				}
-				
 				synchronized (this.socket) {
 					mensajes[pos]=mensaje;
 				}
-				
-				//Switch Case con los códigos de mensaje
-				switch (codigo) {
-				case 1:
-					break;
-				case 3:
-					break;
-				default:
-					break;
-				}
-				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}  catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
+			//Switch Case con los códigos de mensaje
 		}
 		
 		try {
@@ -120,21 +88,18 @@ public class Servidor extends Thread{
 		}
 		
 		try {
-			while(socketOcupado<5){
-				Socket newSocket = serverSocket.accept();
-				System.out.println("Conexion recibida");
-				Servidor servidorE = new Servidor(newSocket, 1);
-				Servidor servidorR = new Servidor(newSocket, 0);
-				
-				for (int i = 0; i < sockets.length; i++) {
-					if(sockets[i]==null)
-						sockets[i]=newSocket;			
-				}
-				
-				servidorE.start();
-				servidorR.start();
+			Socket newSocket = serverSocket.accept();
+			System.out.println("Conexion recibida");
+			Servidor servidorE = new Servidor(newSocket, 1);
+			Servidor servidorR = new Servidor(newSocket, 0);
+			/*
+			for (int i = 0; i < sockets.length; i++) {
+				if(sockets[i]==null)
+					sockets[i]=newSocket;			
 			}
 			
+			servidorE.start();
+			servidorR.start();*/
 
 		} catch (IOException e) {
 			e.printStackTrace();
