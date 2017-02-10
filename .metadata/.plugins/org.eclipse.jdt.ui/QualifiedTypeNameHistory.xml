@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="Ejercicios1.RunnableClass"/>
-<fullyQualifiedTypeName name="Tema2.HiloEsperar"/>
 <fullyQualifiedTypeName name="Tema2.HiloEsperar3"/>
 <fullyQualifiedTypeName name="Tema2.Hilo2"/>
 <fullyQualifiedTypeName name="javax.xml.bind.SchemaOutputResolver"/>
@@ -11,19 +9,14 @@
 <fullyQualifiedTypeName name="java.time.format.FormatStyle"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="EjerciciosFinales.Hilo"/>
-<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="EjerciciosFinales.Ejercicio10"/>
-<fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="EjerciciosFinales.Coche"/>
 <fullyQualifiedTypeName name="EjerciciosFinales.Barrera"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="EjerciciosFinales.CocheF"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="java.lang.Process"/>
 <fullyQualifiedTypeName name="java.lang.Runtime"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="PruebaFernandoPerezAndres.Hijo1"/>
 <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 <fullyQualifiedTypeName name="PruebaFernandoPerezAndres.H2"/>
@@ -40,24 +33,31 @@
 <fullyQualifiedTypeName name="Ejercicios1.ServidorSocketStream.HiloSocket"/>
 <fullyQualifiedTypeName name="Ejercicios1.HiloServidor"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicScrollPaneUI.HSBChangeListener"/>
-<fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="Ejercicios4.ServidorSocket"/>
 <fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
 <fullyQualifiedTypeName name="Ejercicios4.HiloCliente6"/>
 <fullyQualifiedTypeName name="Ejercicios4.HiloServer6"/>
 <fullyQualifiedTypeName name="java.io.PrintStream"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.net.ServerSocket"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
 <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
 <fullyQualifiedTypeName name="Mensaje.Servidor"/>
 <fullyQualifiedTypeName name="Mensaje.Mensaje"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="Telefono.ServidorTelefono"/>
 <fullyQualifiedTypeName name="java.net.Socket"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
 </qualifiedTypeNameHistroy>
