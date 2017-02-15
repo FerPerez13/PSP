@@ -1,0 +1,77 @@
+package Telefono;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.util.Scanner;
+
+
+public class ClienteTelefono {
+	public static void main (String[] args) {
+		try{
+			System.out.println("Creando socket cliente");
+            Socket clientSocket = new Socket();
+            System.out.println("Estableciendo la conexion");
+
+            InetSocketAddress addr = new InetSocketAddress("192.168.26.41", 5555);
+            clientSocket.connect(addr);
+
+            InputStream is = clientSocket.getInputStream();
+            OutputStream os = clientSocket.getOutputStream();
+            int pedir;
+            do{
+	            System.out.println("Elija una opcion \n"
+	            		+ "1 Leer Agenda\n"
+	            		+ "2 Pedir Telefono\n"
+	            		+ "0 Salir");
+	            Scanner scanner = new Scanner(System.in);
+	            System.out.println("Dime que quieres hacer");
+	            pedir = scanner.nextInt();
+            
+           
+          switch (pedir) {
+          		case 1:
+					System.out.println("Enviando peticion Agenda\n");
+					os.write("1\r\n".getBytes());
+					//os.close();
+	
+					BufferedReader entradaEstandar = new BufferedReader(new InputStreamReader(is));
+					System.out.println("Mensaje Recibido");
+					String mensaje;
+					while((mensaje=entradaEstandar.readLine())!=null){
+						System.out.println(mensaje);
+					}
+					break;
+          		case 2:
+    				System.out.println("Enviando peticion Telefono");
+    				os.write("2\r\n".getBytes());
+    				
+    				BufferedWriter entradatelefono = new BufferedWriter(new OutputStreamWriter(os));
+    				System.out.println("Nombre de contacto");
+    				//String nombre =scanner.nextLine();
+    				String nombre = "Pepe";
+    				System.out.println("Numero del contacto");
+    				//String numero = scanner.nextLine();
+    				String numero = "629204214";
+    				entradatelefono.write(nombre+"\t"+numero+"\r\n");
+          		case 0:
+          			break;
+          		default:
+          			break;
+          }
+            }while(pedir!=0);
+            System.out.println("Cerrando el socket cliente");
+			clientSocket.close();
+			System.out.println("Terminado");
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+}

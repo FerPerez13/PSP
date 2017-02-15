@@ -18,40 +18,48 @@ public class ServidorTelefono extends Thread{
 		try {
 			System.out.println("Arrancando Hilo");
 			
+			//Conexiones entre Cliente-Servidor
 			InputStream iStream = clientSocket.getInputStream();
 			OutputStream oStream = clientSocket.getOutputStream();
+			
+			//Lectores y Escritores del documento
 			File archivo = new File("telefonos.txt");
 			FileReader fReader = new FileReader(archivo);
 			FileWriter fWriter = new FileWriter(archivo);
-			BufferedWriter bWriter = new BufferedWriter(fWriter);
+			
+			//Buffers de comunicacion
+			BufferedWriter bWriter = new BufferedWriter(new OutputStreamWriter(oStream));
 			BufferedReader bReader = new BufferedReader(new InputStreamReader(iStream));
+			
+			//Buffers del Documento
+			BufferedWriter bufWriter = new BufferedWriter(fWriter);
 			BufferedReader bufReader = new BufferedReader(fReader);
 			
+			
 			String mensaje = bReader.readLine();
+			System.out.println("Mensaje recibido"+mensaje);
 			
 			//TODO: Hay que conseguir que el hilo no se cierre.porque no me coje el mensaje. 
 			//Cojo el Cliente de Moreno para ver que pasa y lo tengo que utilizar en casa con los 2 pc's
 			
-			if(mensaje.compareToIgnoreCase("agenda")==0){
-				//TODO: Enviar todo lo que haya en el TXT al cliente
+			if(mensaje.compareToIgnoreCase("1")==0){
+				//Enviar todo lo que haya en el TXT al cliente
 				System.out.println("Enviando agenda");
 				String lineaAgenda;
-				while ((lineaAgenda=bufReader.readLine())!=null) {
-					oStream.write(lineaAgenda.getBytes());
-					oStream.flush();
-					oStream.close();
-				}
-				
+				while ((lineaAgenda=bReader.readLine())!=null) { //Aqui no está entrando, se queda pillado. ES EL PUTO readLine()!!!!!
+					System.err.println("Chivato2");
+					bWriter.write(lineaAgenda);
+					bufWriter.close();
+				}				
 			}else{
-				//TODO: Guardar lo que nos llegue en el fichero TXT
+				//Guardar lo que nos llegue en el fichero TXT
 				System.out.println("Leyendo para guardar nuevo agenda");
 				String mensaje2 = bReader.readLine();
-				bWriter.write(mensaje);
-				
+				bufWriter.write(mensaje2);
 			}
 			
 			bReader.close();
-			bWriter.close();
+			bufWriter.close();
 			bufReader.close();
 			
 		} catch (Exception e) {
@@ -72,8 +80,6 @@ public class ServidorTelefono extends Thread{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println("Aceptando conexiones");
 		
 		while(serverSocket!=null){
 			try {

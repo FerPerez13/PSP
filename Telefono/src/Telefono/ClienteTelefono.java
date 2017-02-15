@@ -26,56 +26,56 @@ public class ClienteTelefono {
             InputStream is = clientSocket.getInputStream();
             OutputStream os = clientSocket.getOutputStream();
             
-            System.out.println("Elija una opcion \n"
-            		+ "1 Leer Agenda"
-            		+ "2 Pedir Telefono");
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Dime que quieres hacer");
-            int pedir = scanner.nextInt();
+            //Buffers de comunicacion
+			BufferedWriter bWriter = new BufferedWriter(new OutputStreamWriter(os));
+			BufferedReader bReader = new BufferedReader(new InputStreamReader(is));
+			
+            int pedir;
+            do{
+	            System.out.println("Elija una opcion \n"
+	            		+ "1 Leer Agenda\n"
+	            		+ "2 Pedir Telefono\n"
+	            		+ "0 Salir");
+	            Scanner scanner = new Scanner(System.in);
+	            System.out.println("Dime que quieres hacer");
+	            pedir = scanner.nextInt();
             
+           
           switch (pedir) {
           		case 1:
-				System.out.println("Enviando peticion Agenda");
-				os.write("Agenda".getBytes());
-				os.close();
-
-				BufferedReader entradaEstandar = new BufferedReader(new InputStreamReader(is));
-				System.out.println("Mensaje Recibido");
-				String mensaje;
-				while((mensaje=entradaEstandar.readLine())!=null)
-						{
+					System.out.println("Enviando peticion Agenda\n");
+					os.write("1\r\n".getBytes());
+					//os.close();
+	
+					String mensaje;
+					System.out.println("Mensaje Recibido");
+					while((mensaje=bReader.readLine())!=null){ //El problema está aqui, en el readLine(), no lee nada y se queda pillado
+						System.out.println("Chivato1");
 						System.out.println(mensaje);
-						}
-				
-				System.out.println("Cerrando el socket cliente");
-				clientSocket.close();
-				System.out.println("Terminado");
-
-			break;
+					}
+					System.out.println("Fin Lectura de Agenda");
+					break;
           		case 2:
     				System.out.println("Enviando peticion Telefono");
-    				os.write("2".getBytes());
-    				os.close();
+    				os.write("2\r\n".getBytes());
     				
-    				BufferedWriter entradatelefono = new BufferedWriter(new OutputStreamWriter(os));
     				System.out.println("Nombre de contacto");
-    				String nombre =scanner.nextLine();
+    				//String nombre =scanner.nextLine();
+    				String nombre = "Pepe";
     				System.out.println("Numero del contacto");
-    				String numero = scanner.nextLine();
-    				
-
-    				
-    				System.out.println("Cerrando el socket cliente");
-    				clientSocket.close();
-    				System.out.println("Terminado");
+    				//String numero = scanner.nextLine();
+    				String numero = "629204214";
+    				bWriter.write(nombre+"\t"+numero+"\r\n");
           		case 0:
           			break;
-		default:
-			break;
-		}
-				
-		}
-		catch(IOException e){
+          		default:
+          			break;
+          }
+            }while(pedir!=0);
+            System.out.println("Cerrando el socket cliente");
+			clientSocket.close();
+			System.out.println("Terminado");
+		}catch(IOException e){
 			e.printStackTrace();
 		}
 	}
