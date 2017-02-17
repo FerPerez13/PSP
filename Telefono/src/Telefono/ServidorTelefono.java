@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.BrokenBarrierException;
 
 public class ServidorTelefono extends Thread{
 	
@@ -12,70 +13,18 @@ public class ServidorTelefono extends Thread{
 	public ServidorTelefono(Socket socket){
 		clientSocket = socket;
 	}
-	
-	
-	public void run() {
-		try {
-			System.out.println("Arrancando Hilo");
-			
-			//Conexiones entre Cliente-Servidor
-			InputStream iStream = clientSocket.getInputStream();
-			OutputStream oStream = clientSocket.getOutputStream();
-			
-			//Lectores y Escritores del documento
-			File archivo = new File("telefonos.txt");
-			FileReader fReader = new FileReader(archivo);
-			FileWriter fWriter = new FileWriter(archivo);
-			
-			//Buffers de comunicacion
-			BufferedWriter bWriter = new BufferedWriter(new OutputStreamWriter(oStream));
-			BufferedReader bReader = new BufferedReader(new InputStreamReader(iStream));
-			
-			//Buffers del Documento
-			BufferedWriter bufWriter = new BufferedWriter(fWriter);
-			BufferedReader bufReader = new BufferedReader(fReader);
-			
-			
-			String mensaje = bReader.readLine();
-			System.out.println("Mensaje recibido"+mensaje);
-			
-			//TODO: Hay que conseguir que el hilo no se cierre.porque no me coje el mensaje. 
-			//Cojo el Cliente de Moreno para ver que pasa y lo tengo que utilizar en casa con los 2 pc's
-			
-			if(mensaje.compareToIgnoreCase("1")==0){
-				//Enviar todo lo que haya en el TXT al cliente
-				System.out.println("Enviando agenda");
-				String lineaAgenda;
-				while ((lineaAgenda=bReader.readLine())!=null) { //Aqui no está entrando, se queda pillado. ES EL PUTO readLine()!!!!!
-					System.err.println("Chivato2");
-					bWriter.write(lineaAgenda);
-					bufWriter.close();
-				}				
-			}else{
-				//Guardar lo que nos llegue en el fichero TXT
-				System.out.println("Leyendo para guardar nuevo agenda");
-				String mensaje2 = bReader.readLine();
-				bufWriter.write(mensaje2);
-			}
-			
-			bReader.close();
-			bufWriter.close();
-			bufReader.close();
-			
-		} catch (Exception e) {
-			
-		}
-	}
-	
+
 	public static void main(String args[]) throws IOException{
 		
 		System.out.println("Iniciando el servidor");
-		System.out.println("Esperando conexiones...");
+		System.out.println("Esperando conexiones...\n");
 		ServerSocket serverSocket = null;
 		
 		try {
 			serverSocket = new ServerSocket();
-			InetSocketAddress addr = new InetSocketAddress("192.168.26.41", 5555);
+			InetSocketAddress addr = new InetSocketAddress("192.168.26.41", 5555); //Direccion de clase
+			//InetSocketAddress addr = new InetSocketAddress("192.168.1.111", 5555); //Direccion de casa
+
 			serverSocket.bind(addr);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -86,13 +35,47 @@ public class ServidorTelefono extends Thread{
 				Socket newSocket = serverSocket.accept();
 				System.out.println("Conexión recibida");
 				
-				ServidorTelefono hilo = new ServidorTelefono(newSocket);
-				hilo.start();
+				InputStream iStream = newSocket.getInputStream();
+				BufferedReader bReader = new BufferedReader(new InputStreamReader(iStream));
+				
+				String opcion;
+				do {
+					
+					opcion = bReader.readLine();
+					File archivo = new File("telefonos.txt");
+					
+					if (opcion.compareTo("1")==0) {
+						
+						FileReader fReader = new FileReader(archivo);
+						BufferedReader bufReader = new BufferedReader(fReader);
+						String linea;
+						
+						OutputStream os = newSocket.getOutputStream();
+						while ((linea=bufReader.readLine())!=null){
+							
+							System.out.println(linea);
+							os.write((linea+"\r\n").getBytes());
+						}
+						os.write("-1\r\n".getBytes());
+						fReader.close();
+						
+					}else if(opcion.compareTo("2")==0){
+						FileWriter fWriter = new FileWriter(archivo,true);
+						String contacto = bReader.readLine();
+						System.out.println(contacto);
+						fWriter.write(contacto+"\r\n");
+						fWriter.close();
+					
+					}
+//					else if (opcion.compareTo("0")==0) {
+//					}
+					
+				}while(opcion.compareTo("0")!=0);
+				
 			} catch (IOException e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
 		}
-		
 		System.out.println("Terminado");
 	}
 

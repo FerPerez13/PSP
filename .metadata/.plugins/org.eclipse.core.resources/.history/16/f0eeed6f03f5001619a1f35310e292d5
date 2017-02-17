@@ -1,0 +1,81 @@
+package Telefono;
+
+import java.io.*;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.BrokenBarrierException;
+
+public class ServidorTelefono extends Thread{
+	
+	private Socket clientSocket;
+	
+	public ServidorTelefono(Socket socket){
+		clientSocket = socket;
+	}
+
+	public static void main(String args[]) throws IOException{
+		
+		System.out.println("Iniciando el servidor");
+		System.out.println("Esperando conexiones...\n");
+		ServerSocket serverSocket = null;
+		
+		try {
+			serverSocket = new ServerSocket();
+			InetSocketAddress addr = new InetSocketAddress("192.168.26.41", 5555); //Direccion de clase
+			//InetSocketAddress addr = new InetSocketAddress("192.168.1.111", 5555); //Direccion de casa
+
+			serverSocket.bind(addr);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		while(serverSocket!=null){
+			try {
+				Socket newSocket = serverSocket.accept();
+				System.out.println("Conexión recibida");
+				
+				InputStream iStream = newSocket.getInputStream();
+				BufferedReader bReader = new BufferedReader(new InputStreamReader(iStream));
+				
+				String opcion;
+				do {
+					
+					opcion = bReader.readLine();
+					File archivo = new File("telefonos.txt");
+					
+					if (opcion.compareTo("1")==0) {
+						
+						FileReader fReader = new FileReader(archivo);
+						BufferedReader bufReader = new BufferedReader(fReader);
+						String linea;
+						
+						OutputStream os = newSocket.getOutputStream();
+						while ((linea=bufReader.readLine())!=null){
+							
+							System.out.println(linea);
+							os.write((linea+"\r\n").getBytes());
+						}
+						os.write("-1\r\n".getBytes());
+						fReader.close();
+						
+					}else if(opcion.compareTo("2")==0){
+						FileWriter fWriter = new FileWriter(archivo,true);
+						String contacto = bReader.readLine();
+						System.out.println(contacto);
+						fWriter.write(contacto+"\r\n");
+						fWriter.close();
+//						
+//					}else if (opcion.compareTo("0")==0) {
+//					}
+					
+				}while(opcion.compareTo("0")!=0);
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("Terminado");
+	}
+
+}

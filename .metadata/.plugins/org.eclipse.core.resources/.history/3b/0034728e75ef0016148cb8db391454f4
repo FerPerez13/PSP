@@ -1,7 +1,0 @@
-package Telefono;
-
-public class ServidorTelefono extends Thread{
-	
-	
-
-}
